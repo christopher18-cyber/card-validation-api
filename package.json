@@ -2,11 +2,11 @@
   "name": "card-validation-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.ts",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "dev": "nodemon --exec tsx server.ts",
-    "start": "node server.ts"
+    "start": "tsx server.ts"
   },
   "keywords": [],
   "author": "",
