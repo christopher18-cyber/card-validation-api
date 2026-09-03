@@ -45,3 +45,6 @@ export async function validateCardController(req: Request, res: Response): Promi
     metadata
   });
 }
+
+    //  "cardNumber": "5399834478520257"
+    //  "cardNumber": "5399834478520253"
