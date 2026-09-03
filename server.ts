@@ -10,6 +10,9 @@ app.use(express.json());
 
 app.use('/api', cardRoutes);
 
-app.listen(PORT, () => {
-  logger.info(`Server is running on port ${PORT}`);
-});
+export { app };
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    logger.info(`Server is running on port ${PORT}`);
+  })
+}
