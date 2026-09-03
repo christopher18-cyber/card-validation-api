@@ -6,7 +6,7 @@ export async function validateCardController(req: Request, res: Response): Promi
     logger.info("Card validation endppoint hitted.")
   const { cardNumber } = req.body;
 
-  // Step 1: Local Luhn Validation Check
+  // Local Luhn Validation Check -> (main implemenatation)
   const result = validateCardNumber(cardNumber);
 
   if (!result.isValid) {
@@ -18,7 +18,8 @@ export async function validateCardController(req: Request, res: Response): Promi
 
   let metadata = null;
 
-  // Step 2: Safe External BIN Lookup (Fails gracefully if API is down)
+  //Safe External BIN Lookup ->  extra work (Fails gracefully if API ->
+  // is down but doesn't stop the first one (luhn algorithm) from working)
   try {
     const bin = result.cleanNumber?.slice(0, 6);
     const apiResponse = await fetch(`https://lookup.binlist.net/${bin}`, {
